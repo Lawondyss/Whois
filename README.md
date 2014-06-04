@@ -27,6 +27,18 @@ Run in command-line:
 php composer.phar install
 ```
 
+Uses
+----
+```php
+$whois = new Whois\Whois;
+
+$info = $whois->getInfo('google.com');
+
+var_dump($info['Domain Name']); // string(10) "google.com"
+var_dump($info['Creation Date']); // string(13) "2002-10-02T00"
+var_dump($info['Admin Organization']); // string(11) "Google Inc."
+```
+
 
 [sudostuff.com]:http://www.sudostuff.com
 [article]:http://www.sudostuff.com/free-open-source-whois-api-1.html
