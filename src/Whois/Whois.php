@@ -64,7 +64,7 @@ class Whois
         continue;
       }
 
-      list($key, $value) = explode(':', $line);
+      list($key, $value) = $this->explode($line);
       $value = trim($value);
 
       $data[$key] = $value;
@@ -94,6 +94,20 @@ class Whois
       return true;
     }
     return false;
+  }
+
+
+  /**
+   * @param string $line
+   * @return array
+   */
+  private function explode($line)
+  {
+    $key = strstr($line, ':', true);
+    $value = strstr($line, ':');
+    $value = substr($value, 1);
+
+    return array($key, $value);
   }
 
 
