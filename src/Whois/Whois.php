@@ -67,7 +67,9 @@ class Whois
       list($key, $value) = $this->explode($line);
       $value = trim($value);
 
-      $data[$key] = $value;
+      if (!array_key_exists($key, $data)) {
+        $data[$key] = $value;
+      }
     }
 
     return $data;
